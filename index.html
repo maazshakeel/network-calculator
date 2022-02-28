@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Calculator</title>
+</head>
+<body>
+    <div>
+        <form class="container" action="/" method="post">
+            <input type="text" name="ip" id="" placeholder="Ip/Mask">
+            <input type="submit" value="Submit">
+        </form>
+        {% if variable %}
+            Network Address: {{ Net_Addr }} <br>
+            Broadcast Address: {{ broadcast_address }} <br>
+            CIDR Notation: {{ pref_len }} <br>
+            Subnet Mask: {{ Mask }} <br>
+            Wildcard Mask: {{ wildcard }} <br>
+            First Ip: {{ first_ip }} <br>
+            Last Ip: {{ last_ip }} <br>
+            Class: {{ classes}}
+        {% endif %}
+    </div> 
+</body>
+</html>
