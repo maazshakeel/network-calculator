@@ -12,7 +12,7 @@
             <input type="text" name="ip" id="" placeholder="Ip/Mask">
             <input type="submit" value="Submit">
         </form>
-        {% if variable %}
+        {% if post_req %}
             Network Address: {{ Net_Addr }} <br>
             Broadcast Address: {{ broadcast_address }} <br>
             CIDR Notation: {{ pref_len }} <br>
@@ -21,7 +21,7 @@
             First Ip: {{ first_ip }} <br>
             Last Ip: {{ last_ip }} <br>
             Class: {{ classes}} <br>
-            Total Host: {{ total_host }}
+            Total Host: {{ useable_host }}
         {% endif %}
     </div> 
 </body>
