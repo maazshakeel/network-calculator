@@ -4,26 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Network Calculator</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+            padding-top: 5em;
+            flex-direction: column;
+        }
+        h1 {
+            padding-top: 2em;
+            padding-right: 2em;
+            text-align: center;
+            font-family: monospace;
+        }
+        #input-text {
+            border: 1px solid;
+            border-radius: 15px;
+            border-width: 1px;
+            padding: 20px;
+            font-size: 20px;
+            font-family: monospace;
+        }
+        #input-submit {
+            padding: 20px;
+            font-size: 15px;
+            border: 1px solid;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .submitContainerButton {
+            padding-left: 1em;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: row;
+        }
+        .span-text {
+            font-size: 15px;
+            font-family: monospace;
+            padding-left: 1em;
+            padding-top: 1em;
+        }
+        .data_display {
+            padding-left: 5em;
+            padding-top: 1em;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <form class="container" action="/" method="post">
-            <input type="text" name="ip" id="" placeholder="Ip/Mask">
-            <input type="submit" value="Submit">
+    <h1>Network Calculator</h1>
+    <div class="container">
+        <form class="form-container" action="/" method="post">
+            <input type="text" name="ip" id="input-text" placeholder="Ip/Mask">
+            <div class="submitContainerButton">
+                <input type="submit" value="Submit" id="input-submit">
+            </div>
         </form>
-        {% if post_req %}
-            Network Address: {{ Net_Addr }} <br>
-            Broadcast Address: {{ broadcast_address }} <br>
-            CIDR Notation: {{ pref_len }} <br>
-            Subnet Mask: {{ Mask }} <br>
-            Wildcard Mask: {{ wildcard }} <br>
-            First Ip: {{ first_ip }} <br>
-            Last Ip: {{ last_ip }} <br>
-            Class: {{ classes}} <br>
-            Total Host: {{ useable_host }}
-        {% endif %}
+        <div class="data_display">
+            {% if post_req %}
+                <h3>Information</h5>
+                <span class="span-text">Network Address: {{ Net_Addr }}</span> <br>
+                <span class="span-text">Broadcast Address: {{ broadcast_address }}</span> <br> 
+                <span class="span-text">CIDR Notation: {{ pref_len }}</span>  <br>
+                <span class="span-text">Subnet Mask: {{ Mask }}</span>
+                <span class="span-text">Wildcard Mask: {{ wildcard }}</span> <br>
+                <span class="span-text">First Ip: {{ first_ip }}</span> <br>
+                <span class="span-text">Last Ip: {{ last_ip }}</span> <br>
+                <span class="span-text">Class: {{ classes }}</span> <br>
+                <span class="span-text">Total Host: {{ useable_host }}</span>  <br>
+            {% endif %}
+        </div>
     </div> 
 </body>
 </html>
